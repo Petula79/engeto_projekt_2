@@ -1,13 +1,7 @@
 import random
 
-# First, you need to install the package.
-#
-# pip install bullsandcows
-#
-# Now in your project, import the package and create a new instance.
-
-from bullsandcows import bullsandcows
-game = bullsandcows()
+# from bullsandcows import bullsandcows
+# game = bullsandcows()
 
 
 def get_digits(num):
@@ -40,7 +34,6 @@ def num_bull_cows(num, guess):
                 bull_cow[0] += 1
             else:
                 bull_cow[1] += 1
-
     return bull_cow
 
 
@@ -72,16 +65,9 @@ while score_counter >= 0:
         print("The input cannot begin with '0'! Try again.")
         continue
     bull_cow = num_bull_cows(game_num, guess)
-
-    if bull_cow[0] == 0 and bull_cow[1] == 0:
-        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
-              separator_3)
-    elif bull_cow[0] == 0 and bull_cow[1] == 1:
+    if bull_cow[0] == 0 and bull_cow[1] == 1:
         print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COW",
               separator_2)
-    elif bull_cow[0] == 0 and bull_cow[1] >= 2:
-        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
-              separator_3)
     elif bull_cow[0] == 1 and bull_cow[1] == 0:
         print(separator_2, bull_cow[0], "BULL", bull_cow[1], "COWS",
               separator_3)
@@ -91,28 +77,22 @@ while score_counter >= 0:
     elif bull_cow[0] == 1 and bull_cow[1] >= 2:
         print(separator_2, bull_cow[0], "BULL", bull_cow[1], "COWS",
               separator_3)
-    elif bull_cow[0] == 2 and bull_cow[1] == 0:
-        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
-              separator_3)
     elif bull_cow[0] == 2 and bull_cow[1] == 1:
         print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COW",
               separator_2)
-    elif bull_cow[0] == 2 and bull_cow[1] == 2:
-        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
-              separator_3)
-    elif bull_cow[0] == 3 and bull_cow[1] == 0:
-        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
-              separator_3)
     elif bull_cow[0] == 3 and bull_cow[1] == 1:
         print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COW",
               separator_2)
-    else:
+    elif bull_cow[0] == 4:
         print(separator, "YOU WON!".center(len(separator)),
               separator, sep="\n")
         print(f"Correct, you've guessed the right number "
               f"in {score_counter} guesses!", separator, sep="\n")
         break
-
-mins, secs = game.get_time()
-print(f"Total time spent: {mins} min & {secs} sec")
+    else:
+        print(separator_3, bull_cow[0], "BULLS", bull_cow[1], "COWS",
+              separator_3)
+#
+# mins, secs = game.get_time()
+# print(f"Total time spent: {mins} min & {secs} sec")
 
